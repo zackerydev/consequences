@@ -1,5 +1,5 @@
+name: 'triggers / dispatch'
 on:
-  push: 'main'
   pull_request:
     branches:
       - main

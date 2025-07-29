@@ -1,0 +1,27 @@
+on:
+  push:
+    branches:
+      - main
+name: 'security'
+jobs:
+  install-safely:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - name: rustup
+        run: |
+          curl --proto '=https' --tlsv1.2 -sSf \
+            -o rustup-init \
+            "https://static.rust-lang.org/rustup/dist/${RUSTUP_ARCH}/rustup-init"
+          chmod +x rustup-init
+          # verify checksum
+          echo "${RUSTUP_SHA256} rustup-init" | sha256sum --check -
+          ./rustup-init -y --no-modify-path --default-toolchain stable --profile minimal
+        env:
+          RUSTUP_ARCH: x86_64-unknown-linux-gnu
+          # https://rust-lang.github.io/rustup/installation/other.html
+          RUSTUP_SHA256: 20a06f644b0d9bd2fbdbfd52d42540bdde820ea7df86e92e533c073da0cdd43c
+
+
+  
