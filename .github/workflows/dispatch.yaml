@@ -1,0 +1,31 @@
+name: main / dispatch
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        description: 'Name'
+        required: true
+        type: string
+      age:
+        description: 'Age'
+        required: true
+        type: number
+
+jobs:
+  greeting:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4.2.2
+      - uses: ./.github/actions/setup
+      - run: pnpm install
+      - run: echo ${{ inputs.name }}
+      - run: echo ${{ inputs.age }}
+      - name: 'config'
+        run: |
+          echo 'config={"logLevel": "info"}' >> $GITHUB_ENV
+      - name: loglevel
+        run: 'echo $LOG_LEVEL'
+        env:
+          LOG_LEVEL: ${{ fromJson(env.config).logLevel }}
+      - name: 'context'
+        run: echo ${{ toJson(github) }}

@@ -1,0 +1,6 @@
+name: '@consequences/analysis'
+version: 1.0.0
+main: main.ts
+type: module
+scripts:
+  typecheck: tsc

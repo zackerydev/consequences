@@ -1,0 +1,19 @@
+labels:
+  - name: size/xs
+    color: "008672"
+    description: Extra small change
+  - name: size/s
+    color: "795548"
+    description: Small change
+  - name: size/m
+    color: F44336
+    description: Medium change
+  - name: size/l
+    color: E91E63
+    description: Large change
+  - name: size/xl
+    color: 9C27B0
+    description: Extra large change
+  - name: size/xxl
+    color: 673AB7
+    description: Extra extra large change 

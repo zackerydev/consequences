@@ -1,0 +1,22 @@
+---
+name: main / matrix
+on: [push]
+jobs:
+  ci:
+    strategy:
+      matrix:
+        command:
+          - typecheck
+          - test
+        include:
+          - command: lint
+            root: true
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4.2.2
+      - uses: ./.github/actions/setup
+      - run: pnpm run -r ${{ matrix.command }}
+        if: ${{ !matrix.root }}
+      - run: pnpm run ${{ matrix.command }}
+        if: ${{ matrix.root }}
+
