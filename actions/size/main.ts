@@ -1,4 +1,4 @@
-import type * as actionsCore from "@actions/core";
+import * as actionsCore from "@actions/core";
 import type { context, getOctokit } from "@actions/github";
 import type { PullRequestEvent } from "@octokit/webhooks-types";
 

@@ -1,0 +1,170 @@
+# .github/workflows/pr-size-labeler.yml
+name: PR Size Labeler
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  label-pr-size:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Get changed files count
+        id: changed-files
+        run: |
+          # Get the number of changed files in the PR
+          files_changed=$(git diff --name-only origin/${{ github.base_ref }}...origin/${{ github.head_ref }} | wc -l)
+          echo "files_changed=$files_changed" >> $GITHUB_OUTPUT
+          echo "Changed files: $files_changed"
+
+      - name: Determine size label
+        id: size-label
+        run: |
+          files=${{ steps.changed-files.outputs.files_changed }}
+          
+          if [ $files -le 3 ]; then
+            label="size/XS"
+            color="0e8a16"
+          elif [ $files -le 10 ]; then
+            label="size/S"
+            color="5319e7"
+          elif [ $files -le 25 ]; then
+            label="size/M"
+            color="fbca04"
+          elif [ $files -le 50 ]; then
+            label="size/L"
+            color="ff9500"
+          else
+            label="size/XL"
+            color="d93f0b"
+          fi
+          
+          echo "label=$label" >> $GITHUB_OUTPUT
+          echo "color=$color" >> $GITHUB_OUTPUT
+          echo "Selected label: $label"
+
+      - name: Create label if it doesn't exist
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const labelName = '${{ steps.size-label.outputs.label }}';
+            const labelColor = '${{ steps.size-label.outputs.color }}';
+            
+            try {
+              await github.rest.issues.getLabel({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                name: labelName
+              });
+              console.log(`Label ${labelName} already exists`);
+            } catch (error) {
+              if (error.status === 404) {
+                console.log(`Creating label ${labelName}`);
+                await github.rest.issues.createLabel({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  name: labelName,
+                  color: labelColor,
+                  description: `Pull request touches ${labelName.split('/')[1]} number of files`
+                });
+              } else {
+                throw error;
+              }
+            }
+
+      - name: Remove existing size labels
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const sizeLabels = ['size/XS', 'size/S', 'size/M', 'size/L', 'size/XL'];
+            
+            // Get current labels on the PR
+            const { data: currentLabels } = await github.rest.issues.listLabelsOnIssue({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number
+            });
+            
+            // Remove any existing size labels
+            for (const label of currentLabels) {
+              if (sizeLabels.includes(label.name)) {
+                console.log(`Removing existing size label: ${label.name}`);
+                await github.rest.issues.removeLabel({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: context.issue.number,
+                  name: label.name
+                });
+              }
+            }
+
+      - name: Add size label to PR
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const labelName = '${{ steps.size-label.outputs.label }}';
+            
+            console.log(`Adding label: ${labelName}`);
+            await github.rest.issues.addLabels({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              labels: [labelName]
+            });
+
+      - name: Comment on PR with size info
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const filesChanged = ${{ steps.changed-files.outputs.files_changed }};
+            const sizeLabel = '${{ steps.size-label.outputs.label }}';
+            
+            const comment = `🏷️ **PR Size**: ${sizeLabel}
+            
+            This pull request touches **${filesChanged}** file(s).
+            
+            Size categories:
+            - XS: 1-3 files
+            - S: 4-10 files  
+            - M: 11-25 files
+            - L: 26-50 files
+            - XL: 50+ files`;
+            
+            // Check if we already commented
+            const { data: comments } = await github.rest.issues.listComments({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number
+            });
+            
+            const botComment = comments.find(comment => 
+              comment.user.type === 'Bot' && 
+              comment.body.includes('🏷️ **PR Size**')
+            );
+            
+            if (botComment) {
+              // Update existing comment
+              await github.rest.issues.updateComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                comment_id: botComment.id,
+                body: comment
+              });
+            } else {
+              // Create new comment
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                body: comment
+              });
+            }
