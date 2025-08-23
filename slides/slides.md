@@ -25,10 +25,10 @@ note:
 ---
 <split left="2" right="2" gap="2">
 <div>
-![[Pasted image 20250810065843.png]]
+![](./images/Pasted%20image%2020250810065843.png)
 </div>
 <div>
-![[Pasted image 20250810070053.png]]
+![](./images/Pasted%20image%2020250810070053.png)
 </div>
 </split>
 note: 
@@ -37,7 +37,7 @@ note:
 - My free time, I'm watching baseball, reading or "hanging out" with my four month old!
  
 ---
-![[Pasted image 20250810070648.png]]
+![](./images/Pasted%20image%2020250810070648.png)
 note:
 - anyway, in my time in fintech I've been working on what I would lovingly call a "DevOps" team
 - **who here works on a devops team?**
@@ -46,7 +46,7 @@ note:
     - or, if you are the person people ask when they get hit with red scaries in their terminal and get stuck
 - alright, now, please keep your hand raised if you or a loved one has been personally victimized by this man
 ---
-![[Pasted image 20250810071132.png]]
+![](./images/Pasted%20image%2020250810071132.png)
 note:
 - ah yes, if you have your hand raised, we have similar scar tissues
 - this man is personally responsible for my own - if you'll pardon the pun - butlerian jihad against Groovy, Java and all JVM usage
@@ -59,7 +59,7 @@ note:
 ## What is GitHub Actions?
 ---
 GitHub's Native CI/CD Workflow Builder
-![[CleanShot 2025-08-05 at 20.31.01@2x.png]]
+![](./images/CleanShot%202025-08-05%20at%2020.31.01@2x.png)
 
 note: 
 - Release in 2018
@@ -101,13 +101,13 @@ note:
 - You are probably already dependent on the control plane
 ---
 ### Action's User Interface
-![[CleanShot 2025-08-05 at 20.33.51@2x.png]]
+![](./images/CleanShot%202025-08-05%20at%2020.33.51@2x.png)
 note:
 - start here
 - if you don't see it - Actions is likely disabled at the org level for you
 ---
 Job List
-![[CleanShot 2025-08-05 at 20.38.09@2x.png]]
+![](./images/CleanShot%202025-08-05%20at%2020.38.09@2x.png)
 note:
 - job list
 - _all_ workflows
@@ -115,7 +115,7 @@ note:
 - below you have some metadata / dashboards
 ---
 Workflow Runs
-![[CleanShot 2025-08-05 at 20.38.09@2x 1.png]]
+![](./images/CleanShot%202025-08-05%20at%2020.38.09@2x%201.png)
 note:
 - workflow run pane
 - shows status, running, errored, failed, cancelled
@@ -123,25 +123,25 @@ note:
 
 ---
 Workflow Filters
-![[CleanShot 2025-08-05 at 20.39.17@2x.png]]
+![](./images/CleanShot%202025-08-05%20at%2020.39.17@2x.png)
 note:
 - robust filtering
 ---
 Workflow Run - Overview
-![[CleanShot 2025-08-05 at 20.40.58@2x.png]]
+![](./images/CleanShot%202025-08-05%20at%2020.40.58@2x.png)
 note:
 - left pane, JOB list (more later)
 - right pane, metadata and visualization
 ---
 Workflow Run - Job Log
-![[CleanShot 2025-08-05 at 20.42.23@2x.png]]
+![](./images/CleanShot%202025-08-05%20at%2020.42.23@2x.png)
 note:
 - clicking into a job gives you the job log
 - searchable
 - expandable
 ---
 Workflow Run - Job Log Settings
-![[CleanShot 2025-08-05 at 20.42.48@2x.png]]
+![](./images/CleanShot%202025-08-05%20at%2020.42.48@2x.png)
 note:
 - re-run, button on top right
 - show timestamps ✅
@@ -150,7 +150,7 @@ note:
 #### Disabling Workflows
 You can easily "pause" or disable workflows 
 
-![[CleanShot 2025-08-09 at 18.31.28@2x.png]]
+![](./images/CleanShot%202025-08-09%20at%2018.31.28@2x.png)
 
 ---
 # Day One
@@ -218,7 +218,7 @@ note:
 - jobs have the first parallelism primitive
 ---
 #### Jobs - Parallelism
-![[CleanShot 2025-08-10 at 08.01.13@2x.png]]
+![](./images/CleanShot%202025-08-10%20at%2008.01.13@2x.png)
 
 ---
 #### Jobs are _Stateless_
@@ -282,7 +282,7 @@ A simple step might look something like this
 #### Using Public Actions (Steps)
 
 The power of GitHub Actions is in the Marketplace
-![[CleanShot 2025-07-27 at 09.53.15@2x.png]]
+![](./images/CleanShot%202025-07-27%20at%2009.53.15@2x.png)
 
 ---
 Shared actions are shared _steps_ not _jobs_
@@ -323,7 +323,7 @@ note:
 - ✅ Actively Maintained
 - ✅ Verified
 
-![[CleanShot 2025-07-27 at 10.10.47@2x.png]]
+![](./images/CleanShot%202025-07-27%20at%2010.10.47@2x.png)
 
 ---
 #### Abstractions are trade-offs
@@ -412,7 +412,7 @@ jobs:
         if: ${{ matrix.root }}
 ```
 ---
-![[CleanShot 2025-08-09 at 20.08.26@2x.png]]
+![](./images/CleanShot%202025-08-09%20at%2020.08.26@2x.png)
 
 ---
 ### Variables and Context
@@ -447,7 +447,7 @@ job:
 ```
 ---
 #### Variables and Secrets
-![[CleanShot 2025-08-09 at 18.58.54@2x.png|700]]
+![](./images/CleanShot%202025-08-09%20at%2018.58.54@2x.png)
 note:
 - docker login example
 ---
@@ -599,7 +599,7 @@ jobs:
 ```
 ---
 #### Workflow Dispatch
-![[CleanShot 2025-08-09 at 20.10.37@2x.png]]
+![](./images/CleanShot%202025-08-09%20at%2020.10.37@2x.png)
 
 note:
 - always runs from a branch
@@ -640,7 +640,7 @@ jobs:
 ####  Triggers
 - Excluding things like bot commits, documentation updates etc. can save you a lot of time (and money!)
 - Some triggers only fire when the action is on the default branch, look for this callout in the docs.
-  ![[CleanShot 2025-08-09 at 20.11.44@2x.png]]
+  ![](./images/CleanShot%202025-08-09%20at%2020.11.44@2x.png)
 ---
 
 ## Day Two
@@ -663,18 +663,18 @@ note:
 brew install actionlint
 actionlint
 ```
-![[CleanShot 2025-07-29 at 07.17.08@2x.png]]
+![](./images/CleanShot%202025-07-29%20at%2007.17.08@2x.png)
 
 ---
 #### Language Services
 VSCode Extension
 
-![[CleanShot 2025-07-29 at 07.18.39@2x.png]]
+![](./images/CleanShot%202025-07-29%20at%2007.18.39@2x.png)
 (`https://github.com/lttb/gh-actions-language-server` for other editors)
 
 ---
 
-![[CleanShot 2025-07-29 at 07.21.20.gif]]
+![](./images/CleanShot%202025-07-29%20at%2007.21.20.gif)
 
 ---
 #### Naming Things
@@ -689,11 +689,11 @@ jobs:
 - This is why creating a single `crons` workflow is valuable!
 ---
 #### Naming Things (Example)
-![[CleanShot 2025-08-09 at 18.28.23@2x 1.png]]
+![](./images/CleanShot%202025-08-09%20at%2018.28.23@2x%201.png)
 ---
 #### The Pin....
 
-![[CleanShot 2025-07-29 at 07.27.33@2x.png]]
+![](./images/CleanShot%202025-07-29%20at%2007.27.33@2x.png)
 You can pin a workflow to the top of the repository... but be warned... it's pinned for everyone not for just you!
 
 ---
@@ -707,7 +707,7 @@ Test your actions locally with `act`
 #### `act` CLI
 - Also has workflow validation
 - Renders Action flow graphs
-![[CleanShot 2025-08-09 at 18.19.09@2x.png]]
+![](./images/CleanShot%202025-08-09%20at%2018.19.09@2x.png)
 
 ---
 # Security
@@ -746,23 +746,23 @@ jobs:
 ---
 
 ✅
-![[CleanShot 2025-07-29 at 07.47.37@2x.png]]
+![](./images/CleanShot%202025-07-29%20at%2007.47.37@2x.png)
 ---
 
 But what about using
-![[CleanShot 2025-07-29 at 07.50.56@2x.png]]
+![](./images/CleanShot%202025-07-29%20at%2007.50.56@2x.png)
 ????
 
 ---
 
 Gotcha! It's still pipe to bash!
-![[CleanShot 2025-08-03 at 06.20.43@2x.png]]
+![](./images/CleanShot%202025-08-03%20at%2006.20.43@2x.png)
 
 ---
 #### Isn't this a little overkill?
 
 ---
-![[CleanShot 2025-08-09 at 16.29.35@2x.png]]
+![](./images/CleanShot%202025-08-09%20at%2016.29.35@2x.png)
 
 ---
 `$GITHUB_TOKEN`
@@ -793,11 +793,11 @@ job:
 
 ---
 #### `$GITHUB_TOKEN` Org-wide Settings
-![[CleanShot 2025-08-03 at 06.49.56@2x.png]]
+![](./images/CleanShot%202025-08-03%20at%2006.49.56@2x.png)
 
 ---
 #### Organization Settings
-![[CleanShot 2025-08-03 at 06.48.43@2x.png]]
+![](./images/CleanShot%202025-08-03%20at%2006.48.43@2x.png)
 ---
 
 ### Dependabot
@@ -818,7 +818,7 @@ It will even respect your SHA pinning!
 ---
 # Environments
 ---
-![[CleanShot 2025-08-09 at 18.59.54@2x.png]]
+![](./images/CleanShot%202025-08-09%20at%2018.59.54@2x.png)
 ---
 ####  Environments
 - Provide approval steps (Enterprise only!)
@@ -871,7 +871,7 @@ if: ${{ cancelled() }} # run if canceled (cleanup)
 ## Native Monitoring
 ---
 #### Insights Tab
-![[CleanShot 2025-08-09 at 18.53.14@2x.png|700]]
+![](./images/CleanShot%202025-08-09%20at%2018.53.14@2x.png)
 ---
 ## Reusing Workflows
 
@@ -930,7 +930,7 @@ note:
 - To use `uses:` on another repo you need to
     - Set the repo to be a GitHub Actions source repository
     - Authenticate `git` with a PAT that has access to the repo
-![[CleanShot 2025-08-09 at 18.54.10@2x 2.png]]
+![](./images/CleanShot%202025-08-09%20at%2018.54.10@2x%202.png)
 ---
 ## Day Three
 ### Excellence
@@ -948,11 +948,11 @@ note:
 - Some amount of minutes are "free" (as in drugs)
 - Self-Hosted runner minutes are "free" (as in baby)
 <center>
-![[Pasted image 20250814210659.png|300]]
+![](./images/Pasted%20image%2020250814210659.png)
 </center>
 ---
 #### Insights - Actions Usage Metrics
-![[CleanShot 2025-08-09 at 20.04.00@2x.png]]
+![](./images/CleanShot%202025-08-09%20at%2020.04.00@2x.png)
 ---
 #### Timeouts
 ```yaml[]
@@ -976,14 +976,14 @@ concurrency:
 ```
 ---
 #### Concurrency Example
-![[CleanShot 2025-08-09 at 18.57.12@2x.png]]
+![](./images/CleanShot%202025-08-09%20at%2018.57.12@2x.png)
 ---
 #### Limits
 They give away the first dose free
-![[Pasted image 20250803190356.png]]
+![](./images/Pasted%20image%2020250803190356.png)
 
 ---
-![[CleanShot 2025-08-03 at 19.04.45@2x.png]]
+![](./images/CleanShot%202025-08-03%20at%2019.04.45@2x.png)
 note:
 - callout modifiers on the right
 ---
@@ -992,9 +992,9 @@ Yes, `macos` runners are 10x the cost... just use Linux
 
 ---
 #### Budgets
-![[CleanShot 2025-08-03 at 19.06.56@2x.png]]
+![](./images/CleanShot%202025-08-03%20at%2019.06.56@2x.png)
 ---
-![[CleanShot 2025-08-03 at 19.07.16@2x.png]]
+![](./images/CleanShot%202025-08-03%20at%2019.07.16@2x.png)
 
 ---
 
@@ -1004,21 +1004,21 @@ Yes, `macos` runners are 10x the cost... just use Linux
 - Kubernetes based
 - Dynamic scaling (pay for only what you use)
 - Ephemeral 
-![[CleanShot 2025-08-03 at 19.14.35@2x.png]]
+![](./images/CleanShot%202025-08-03%20at%2019.14.35@2x.png)
 ---
 #### RunsOn ❓
 `https://runs-on.com/`
 - Cloudformation 
 - Dynamic scaling
 - Ephemeral
-![[CleanShot 2025-08-03 at 19.15.15@2x.png]]
+![](./images/CleanShot%202025-08-03%20at%2019.15.15@2x.png)
 
 ---
 #### Blacksmith/Namespace.so/BuildJet
 - Drop in replacement
 - Cheaper than default
 - Not really self hosted
-![[CleanShot 2025-08-03 at 19.19.57@2x 1.png]]
+![](./images/CleanShot%202025-08-03%20at%2019.19.57@2x%201.png)
 
 ---
 #### `terraform-aws-github-runner`
@@ -1026,7 +1026,7 @@ Yes, `macos` runners are 10x the cost... just use Linux
 - Dynamic Scaling
 - EC2 Spot Instances
 - Ephemeral
-![[CleanShot 2025-08-03 at 19.25.52@2x.png]]
+![](./images/CleanShot%202025-08-03%20at%2019.25.52@2x.png)
 note:
 - created by philips
 ---
@@ -1035,7 +1035,7 @@ note:
 - Avante Garde
 - A Huge Pain
 - Running all the time 😵‍💫
-![[CleanShot 2025-08-03 at 19.22.31@2x.png]]
+![](./images/CleanShot%202025-08-03%20at%2019.22.31@2x.png)
 ---
 #### Self Host If
 - You need access to private VPC Resources
@@ -1064,10 +1064,10 @@ Write your complex workflows _in code_
 `zackerydev/consequences` on GitHub
 `https://consequences.dev`
 
-![[CleanShot 2025-08-12 at 17.45.29@2x.png|600]]
+![](./images/CleanShot%202025-08-12%20at%2017.45.29@2x.png)
 ---
 Thanks to KCDC Sponsors!
-![[kcdc25_sponsorslide.jpeg]]
+![](./images/kcdc25_sponsorslide.jpeg)
 ---
 ## Thank You!
 
@@ -1075,4 +1075,4 @@ You can find me and my socials on https://zackery.dev
 
 Session Feedback
 
-![[2025_SessionFeedback.png|300]]
+![](./images/2025_SessionFeedback.png)
